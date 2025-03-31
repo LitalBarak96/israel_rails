@@ -10,12 +10,12 @@ import translation
 
 # הגדרות כלליות
 st.set_page_config(layout="wide")
-
+#C:/Users/Lital/Downloads/
 
 # טעינת הנתונים
 @st.cache_data
 def load_data():
-    df = pd.read_csv("C:/Users/Lital/Downloads/train_data.csv", encoding="cp1255")
+    df = pd.read_csv("train_data.csv", encoding="cp1255")
     df_tmp=translation.translation_to_hebrew(df)
     return df_tmp
 
