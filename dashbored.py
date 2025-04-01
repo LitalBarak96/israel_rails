@@ -7,6 +7,7 @@ from bidi.algorithm import get_display
 
 import urllib.request
 import json
+from  predictor import DelayPredictor
 
 
 
@@ -151,3 +152,41 @@ st.pyplot(fig2)
 # Show filtered data
 st.subheader("Filtered Data Table")
 st.dataframe(filtered_df[['year', 'month', 'train_station', 'train_status', 'count']])
+
+
+
+
+
+# Assuming df is already loaded
+predictor = DelayPredictor(df)
+predictor.prepare_data()
+
+# Sidebar filters
+st.sidebar.header("Prediction Inputs")
+selected_station = st.sidebar.selectbox("Select station", sorted(df['train_station'].unique()))
+selected_year = st.sidebar.selectbox("Select year", sorted(df['year'].unique(), reverse=True))
+selected_month = st.sidebar.selectbox("Select month", sorted(df['month'].unique()))
+
+# Predict & plot
+if st.button("Predict and Show Actual vs Predicted Graph"):
+    if selected_station not in predictor.le_station.classes_:
+        st.error(f"Station '{selected_station}' not found in model.")
+    else:
+        # Filter only relevant rows for the selected station
+        df_station = predictor.df[predictor.df['train_station'] == selected_station].copy()
+        df_station['station_code'] = predictor.le_station.transform(df_station['train_station'])
+        X = df_station[['station_code', 'year', 'month']]
+        y_true = df_station['count']
+
+        predictor.train()
+        y_pred = predictor.model.predict(X)
+
+        # Plotting
+        fig, ax = plt.subplots(figsize=(10, 6))
+        ax.scatter(y_true, y_pred, alpha=0.6)
+        ax.plot([y_true.min(), y_true.max()], [y_true.min(), y_true.max()], 'r--')
+        ax.set_xlabel("Actual Delay Count")
+        ax.set_ylabel("Predicted Delay Count")
+        ax.set_title(f"Actual vs Predicted for {selected_station}")
+        ax.grid(True)
+        st.pyplot(fig)

@@ -39,25 +39,27 @@ def translation_to_hebrew(df):
                        'הרצליה', 'השלום', 'חדרה מערב', 'חולון וולפסון', 'חוף הכרמל', 'חוצות מפרץ', 'חיפה מרכז',
                        'יבנה מזרח', 'יבנה מערב', 'כפר חבד', 'כפר סבא', 'לא ידוע קוד 6500', 'לא ידוע קוד 6700',
                        'לא ידוע קוד 800', 'להבים רהט', 'לוד', 'לוד גני אביב', 'מודיעין מרכז', 'מרכזית המפרץ/קו החוף',
-                       'נהריה', 'נתבג"', 'נתניה', 'סגולה', 'עכו', 'עתלית', 'פאתי מודיעין', 'צומת חולון',
+                       'נהריה', 'נתב"ג', 'נתניה', 'סגולה', 'עכו', 'עתלית', 'פאתי מודיעין', 'צומת חולון',
                        'קיסריה פרדס חנה', 'קרית אריה', 'קרית גת', 'קרית חיים', 'ראש העין צפון', 'ראשונים', 'רחובות',
-                       'רמלה', 'רשלצ משה דיין"', 'שדרות', 'תא אוניברסיטה', 'תל אביב ההגנה', 'תל אביב מרכז', 'נתיבות',
+                       'רמלה', 'רשל"צ משה דיין', 'שדרות', 'תא אוניברסיטה', 'תל אביב ההגנה', 'תל אביב מרכז',
+                       'נתיבות',
                        'אופקים', 'בית שאן', 'כפר ברוך', 'כפר יהושע', 'עפולה', 'נתניה קריית ספיר', 'קרית מוצקין',
                        'אחיהוד', 'כרמיאל', 'מרכזית המפרץ', 'רעננה דרום', 'רעננה מערב', 'ירושלים/יצחק נבון',
                        'קרית מלאכי', 'מזכרת בתיה']
+
     stations_english = ['Ashdod Ad Halom', 'Ashkelon', 'Beer Yaakov', 'Beer Sheva Central', 'Beer Sheva North',
                         'Beit Yehoshua', 'Beit Shemesh', 'Bnei Brak', 'Binyamina', 'Bat Galim', 'Bat Yam Yoseftal',
-                        'Bat Yam Kommiyot', 'Dimona', 'Hod Hasharon', 'Herzliya', 'Hashalom', 'Hadera West',
-                        'Holon Wolfson', 'Hof Carmel', 'Hotozat Mifratz', 'Haifa Central', 'Yavne East', 'Yavne West',
-                        'Kfar Chabad', 'Kfar Saba', 'Unknown Code 6500', 'Unknown Code 6700', 'Unknown Code 800',
-                        'Lahavim Rahat', 'Lod', 'Lod Ganei Aviv', 'Modiin Central', 'Central Hamifratz/Coastline',
-                        'Nahariya', 'Natbeg', 'Netanya', 'Segula', 'Akko', 'Atlit', 'Pati Modiin', 'Tzomet Holon',
-                        'Caesarea Pardes Hanna', 'Kiryat Aryeh', 'Kiryat Gat', 'Kiryat Haim', 'Rosh Haayin North',
-                        'Rishonim', 'Rehovot', 'Ramla', 'Rashaltz Moshe Dayan', 'Sderot', 'Tel Aviv University',
-                        'Tel Aviv HaHagana', 'Tel Aviv Center', 'Netivot', 'Ofakim', 'Beit Shean', 'Kfar Baruch',
-                        'Kfar Yehoshua', 'Afula', 'Netanya Kiryat Sapir', 'Kiryat Motzkin', 'Achihud', 'Carmiel',
-                        'Mercazit Hamifratz', 'Raanana South', 'Raanana West', 'Jerusalem/Yitzhak Navon',
-                        'Kiryat Malachi', 'Maskeret Batya']
+                        'Bat Yam Komemiyut', 'Dimona', 'Hod Hasharon', 'Herzliya', 'Hashalom', 'Hadera West',
+                        'Holon Wolfson', 'Hof HaCarmel', 'Hutzot Hamifratz', 'Haifa Merkaz', 'Yavne Mizrah',
+                        'Yavne Maarav', 'Kfar Chabad', 'Kfar Saba', 'Unknown Code 6500', 'Unknown Code 6700',
+                        'Unknown Code 800', 'Lehavim Rahat', 'Lod', 'Lod Ganei Aviv', 'Modiin Merkaz',
+                        'Merkazit Hamifratz Coastline', 'Nahariya', 'Ben Gurion Airport', 'Netanya', 'Segula', 'Akko',
+                        'Atlit', 'Patei Modiin', 'Tzomet Holon', 'Caesarea Pardes Hanna', 'Kiryat Aryeh', 'Kiryat Gat',
+                        'Kiryat Haim', 'Rosh HaAyin North', 'Rishonim', 'Rehovot', 'Ramla', 'Rishon Lezion Moshe Dayan',
+                        'Sderot', 'Tel Aviv University', 'Tel Aviv HaHagana', 'Tel Aviv Center', 'Netivot', 'Ofakim',
+                        'Beit Shean', 'Kfar Baruch', 'Kfar Yehoshua', 'Afula', 'Netanya Kiryat Sapir', 'Kiryat Motzkin',
+                        'Ahihud', 'Carmiel', 'Merkazit Hamifratz', 'Raanana South', 'Raanana West',
+                        'Jerusalem Yitzhak Navon', 'Kiryat Malachi', 'Mazkeret Batya']
 
     station_translation = {hebrew: english for hebrew, english in zip(stations_hebrew, stations_english)}
 
