@@ -5,6 +5,12 @@ import seaborn as sns
 import arabic_reshaper
 from bidi.algorithm import get_display
 
+import urllib.request
+import json
+
+
+
+
 def translation_to_hebrew(df):
     translate_status = {
         'איחור': 'Delay',
@@ -68,7 +74,15 @@ st.set_page_config(layout="wide")
 # טעינת הנתונים
 @st.cache_data
 def load_data():
-    df = pd.read_csv("train_data.csv", encoding="cp1255")
+    # כתובת ה-API
+    url = 'https://data.gov.il/api/3/action/datastore_search?resource_id=1ebbbb91-1d44-4f41-a85c-4a93a35e32d6&limit=5'
+
+    with urllib.request.urlopen(url) as response:
+        data = json.load(response)
+
+    records = data['result']['records']
+    df = pd.DataFrame(records)
+
     df_tmp=translation_to_hebrew(df)
     return df_tmp
 

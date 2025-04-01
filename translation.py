@@ -5,9 +5,9 @@ import os
 import re
 import arabic_reshaper
 from bidi.algorithm import get_display
-
-df = pd.read_csv("C:/Users/Lital/Downloads/train_data.csv",encoding="cp1255")
-print(df.head())
+#
+# df = pd.read_csv("C:/Users/Lital/Downloads/train_data.csv",encoding="cp1255")
+# print(df.head())
 
 #
 # for col in df.columns:
@@ -74,5 +74,5 @@ def translation_to_hebrew(df):
     return df
 
 
-translation_to_hebrew(df)
+#translation_to_hebrew(df)
 #print(df.head())
